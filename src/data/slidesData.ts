@@ -1,5 +1,7 @@
 import { TeamMember, SlideData, PriceDataPoint, AdoptionDataPoint, DiagnosisStep } from '../types';
 
+const heroBgImage = new URL('./compressed hero.png', import.meta.url).href;
+
 export const PROJECT_INFO = {
   title: 'FarmShield',
   subtitle: 'AI Powered Smart Agriculture Platform',
@@ -26,7 +28,7 @@ export const SLIDES_META: SlideData[] = [
     title: 'FarmShield',
     subtitle: 'AI Powered Smart Agriculture Platform',
     category: 'Keynote Hero',
-    bgImage: '/compressed_hero.png',
+    bgImage: heroBgImage,
   },
   {
     id: 2,
