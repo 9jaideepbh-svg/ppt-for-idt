@@ -8,12 +8,11 @@ import { GridOverviewModal } from './components/GridOverviewModal';
 import { generateStandaloneHtml } from './utils/exportHtml';
 import { SLIDES_META } from './data/slidesData';
 
-// Import all 15 Slide components
+// Import all 14 Slide components
 import { Slide1_Title } from './components/slides/Slide1_Title';
 import { Slide2_Introduction } from './components/slides/Slide2_Introduction';
 import { Slide3_ProblemStatement } from './components/slides/Slide3_ProblemStatement';
 import { Slide4_Comparison } from './components/slides/Slide4_Comparison';
-import { Slide5_Architecture } from './components/slides/Slide5_Architecture';
 import { Slide6_AIDiagnosisFlow } from './components/slides/Slide6_AIDiagnosisFlow';
 import { Slide7_KrishiSetu } from './components/slides/Slide7_KrishiSetu';
 import { Slide8_KisanTimes } from './components/slides/Slide8_KisanTimes';
@@ -33,7 +32,7 @@ export default function App() {
   const [isTeamModalOpen, setIsTeamModalOpen] = useState<boolean>(false);
   const [isGridModalOpen, setIsGridModalOpen] = useState<boolean>(false);
 
-  const TOTAL_SLIDES = 15;
+  const TOTAL_SLIDES = 14;
 
   const handleNext = useCallback(() => {
     setCurrentSlide((prev) => (prev < TOTAL_SLIDES ? prev + 1 : prev));
@@ -139,26 +138,24 @@ export default function App() {
       case 4:
         return <Slide4_Comparison />;
       case 5:
-        return <Slide5_Architecture />;
-      case 6:
         return <Slide6_AIDiagnosisFlow />;
-      case 7:
+      case 6:
         return <Slide7_KrishiSetu />;
-      case 8:
+      case 7:
         return <Slide8_KisanTimes />;
-      case 9:
+      case 8:
         return <Slide9_PriceForecasting />;
-      case 10:
+      case 9:
         return <Slide10_AIChatbot />;
-      case 11:
+      case 10:
         return <Slide11_FutureScope1 />;
-      case 12:
+      case 11:
         return <Slide12_FutureScope2 />;
-      case 13:
+      case 12:
         return <Slide13_RealLifeApp1 />;
-      case 14:
+      case 13:
         return <Slide14_RealLifeApp2 />;
-      case 15:
+      case 14:
         return <Slide15_ThankYou />;
       default:
         return <Slide1_Title onStartPresentation={() => handleGoToSlide(2)} />;
@@ -169,7 +166,7 @@ export default function App() {
   const handleScreenClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // If clicking interactive elements like buttons, inputs, or modal content, don't trigger slide change
     const target = e.target as HTMLElement;
-    if (target.closest('button') || target.closest('a') || target.closest('input') || target.closest('header') || target.closest('footer') || target.closest('.modal-content')) {
+    if (target.closest('button') || target.closest('a') || target.closest('input') || target.closest('.modal-content')) {
       return;
     }
 
@@ -189,23 +186,9 @@ export default function App() {
       {/* Background Agriculture & AI High-Res Media Layer */}
       <BackgroundMedia currentSlide={currentSlide} />
 
-      {/* Top Header Bar Controls */}
-      <HeaderBar
-        currentSlide={currentSlide}
-        totalSlides={TOTAL_SLIDES}
-        isFullscreen={isFullscreen}
-        isAutoplay={isAutoplay}
-        soundEnabled={soundEnabled}
-        onToggleFullscreen={handleToggleFullscreen}
-        onToggleAutoplay={() => setIsAutoplay((prev) => !prev)}
-        onToggleSound={() => setSoundEnabled((prev) => !prev)}
-        onExportHtml={handleExportHtml}
-        onOpenTeamModal={() => setIsTeamModalOpen(true)}
-      />
-
       {/* Top Left College Logo Badge (Compulsory Across All Slides except Slide 1) */}
       {currentSlide !== 1 && (
-        <div className="fixed top-14 left-4 md:top-16 md:left-6 z-40 flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-2xl shadow-xl border border-white/70 select-none pointer-events-none">
+        <div className="fixed top-3 left-4 md:top-4 md:left-6 z-50 flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-2xl shadow-xl border border-white/70 select-none pointer-events-none">
           <img
             src="/bit_logo.png"
             alt="Bangalore Institute of Technology Logo"
@@ -237,16 +220,6 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
       </main>
-
-      {/* Bottom Navigation Controls Bar */}
-      <SlideNavControls
-        currentSlide={currentSlide}
-        totalSlides={TOTAL_SLIDES}
-        onPrev={handlePrev}
-        onNext={handleNext}
-        onGoToSlide={handleGoToSlide}
-        onToggleGridModal={() => setIsGridModalOpen(true)}
-      />
 
       {/* Team Info & Slide Grid Modals */}
       <TeamModal isOpen={isTeamModalOpen} onClose={() => setIsTeamModalOpen(false)} />

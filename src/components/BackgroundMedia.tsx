@@ -8,7 +8,7 @@ interface BackgroundMediaProps {
 
 export const BackgroundMedia: React.FC<BackgroundMediaProps> = ({ currentSlide }) => {
   const meta = SLIDES_META[currentSlide - 1] || SLIDES_META[0];
-  const showImageBg = currentSlide === 1 || currentSlide === 8 || currentSlide === 12;
+  const showImageBg = currentSlide === 1 || currentSlide === 7 || currentSlide === 11;
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden select-none bg-[#FAF7F0]">
@@ -30,7 +30,7 @@ export const BackgroundMedia: React.FC<BackgroundMediaProps> = ({ currentSlide }
               decoding={currentSlide === 1 ? 'sync' : 'async'}
               className="w-full h-full object-cover object-center"
             />
-            {/* Overlay: Bright for Slide 1 (subtle tint), refined overlay for Slide 8 */}
+            {/* Overlay: Bright for Slide 1 (subtle tint), refined overlay for Slide 7 */}
             {currentSlide === 1 ? (
               <div className="absolute inset-0 bg-black/10 backdrop-brightness-105" />
             ) : (

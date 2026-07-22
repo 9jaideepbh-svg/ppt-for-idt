@@ -78,7 +78,7 @@ export function generateStandaloneHtml(): string {
     <div class="flex items-center gap-4">
       <div class="px-4 py-1.5 rounded-full glass-pill text-xs font-semibold text-emerald-300 flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        SLIDE <span id="current-slide-num">01</span> / 15
+        SLIDE <span id="current-slide-num">01</span> / 14
       </div>
       <button onclick="toggleFullScreen()" class="px-3 py-1.5 rounded-lg glass-pill text-xs font-medium hover:bg-white/20 transition cursor-pointer">
         ⛶ Fullscreen
@@ -317,7 +317,7 @@ export function generateStandaloneHtml(): string {
     </div>
 
     <div class="hidden md:flex items-center gap-2 overflow-x-auto max-w-xl py-1">
-      ${Array.from({ length: 15 }).map((_, i) => `
+      ${Array.from({ length: 14 }).map((_, i) => `
         <button onclick="goToSlide(${i + 1})" id="dot-${i + 1}" class="w-7 h-7 rounded-lg text-xs font-bold ${i === 0 ? 'bg-emerald-400 text-black' : 'glass-pill text-gray-300 hover:bg-white/20'} transition">
           ${i + 1}
         </button>
@@ -331,7 +331,7 @@ export function generateStandaloneHtml(): string {
 
   <script>
     let currentSlide = 1;
-    const totalSlides = 15;
+    const totalSlides = 14;
 
     function updateSlide() {
       for (let i = 1; i <= totalSlides; i++) {
