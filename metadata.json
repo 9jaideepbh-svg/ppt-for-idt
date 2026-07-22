@@ -1,0 +1,6 @@
+{
+  "name": "FARM SHIELD AI - Smart Agriculture Presentation",
+  "description": "Interactive 14-slide Apple Keynote style presentation for FARM SHIELD AI, an AI Powered Smart Agriculture Platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
