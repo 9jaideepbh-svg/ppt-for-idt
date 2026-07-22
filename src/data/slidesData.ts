@@ -1,6 +1,7 @@
 import { TeamMember, SlideData, PriceDataPoint, AdoptionDataPoint, DiagnosisStep } from '../types';
 
 const heroBgImage = new URL('./compressed hero.png', import.meta.url).href;
+const newBgImage = new URL('./new background.png', import.meta.url).href;
 
 export const PROJECT_INFO = {
   title: 'FarmShield',
@@ -70,7 +71,7 @@ export const SLIDES_META: SlideData[] = [
     title: 'Feature 2: Kisan Times',
     subtitle: 'Agri News, Government Schemes & Real-Time Weather Intelligence',
     category: 'Platform Module',
-    bgImage: '/new_background.png',
+    bgImage: newBgImage,
   },
   {
     id: 8,
